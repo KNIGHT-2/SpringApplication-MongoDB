@@ -5,6 +5,7 @@ import com.patrick.SpringApplicationMongoDB.domain.User;
 import com.patrick.SpringApplicationMongoDB.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -37,5 +38,11 @@ public class UserResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
        // return ResponseEntity.ok().body(obj);
         return ResponseEntity.created(uri).build();
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable String id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
