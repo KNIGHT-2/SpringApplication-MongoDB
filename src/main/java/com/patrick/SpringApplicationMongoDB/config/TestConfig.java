@@ -1,19 +1,17 @@
 package com.patrick.SpringApplicationMongoDB.config;
 
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+
 import com.patrick.SpringApplicationMongoDB.DTO.AuthorDTO;
 import com.patrick.SpringApplicationMongoDB.domain.Post;
 import com.patrick.SpringApplicationMongoDB.domain.User;
 import com.patrick.SpringApplicationMongoDB.repository.PostRepository;
 import com.patrick.SpringApplicationMongoDB.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Configuration;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Date;
 
 @Configuration
 public class TestConfig implements CommandLineRunner {

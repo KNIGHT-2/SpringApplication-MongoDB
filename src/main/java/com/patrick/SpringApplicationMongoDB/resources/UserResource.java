@@ -1,6 +1,7 @@
 package com.patrick.SpringApplicationMongoDB.resources;
 
 import com.patrick.SpringApplicationMongoDB.DTO.UserDTO;
+import com.patrick.SpringApplicationMongoDB.domain.Post;
 import com.patrick.SpringApplicationMongoDB.domain.User;
 import com.patrick.SpringApplicationMongoDB.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class UserResource {
 
     @Autowired
     private UserService service;
+    
     @GetMapping
     public ResponseEntity<List<UserDTO>> findAll(){
         List<User> list = service.findAll();
@@ -54,5 +56,11 @@ public class UserResource {
         //return ResponseEntity.ok().body(obj);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.noContent().build();
+    }
+    
+    @GetMapping(value = "{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+    	User obj = service.findById(id);
+    	return ResponseEntity.ok().body(obj.getPosts());
     }
 }
