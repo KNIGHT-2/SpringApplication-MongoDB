@@ -2,6 +2,7 @@ package com.patrick.SpringApplicationMongoDB.domain;
 
 import com.patrick.SpringApplicationMongoDB.DTO.AuthorDTO;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
