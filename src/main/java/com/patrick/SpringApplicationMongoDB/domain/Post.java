@@ -1,12 +1,15 @@
 package com.patrick.SpringApplicationMongoDB.domain;
 
 import com.patrick.SpringApplicationMongoDB.DTO.AuthorDTO;
+import com.patrick.SpringApplicationMongoDB.DTO.CommentDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Document
@@ -18,6 +21,7 @@ public static final long serialVersionUID = 1L;
     private String title;
     private String body;
     private AuthorDTO author;
+    private List<CommentDTO> comments = new ArrayList<>();
     public Post(){}
 
     public Post(String id, Date date, String title, String body, AuthorDTO author) {
@@ -65,7 +69,13 @@ public static final long serialVersionUID = 1L;
     public void setUser(AuthorDTO author){
         this.author = author;
     }
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
 
+    public void setComments(List<CommentDTO> comments) {
+        this.comments = comments;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

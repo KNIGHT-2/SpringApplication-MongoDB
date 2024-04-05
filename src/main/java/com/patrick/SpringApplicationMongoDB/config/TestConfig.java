@@ -3,6 +3,7 @@ package com.patrick.SpringApplicationMongoDB.config;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
+import com.patrick.SpringApplicationMongoDB.DTO.CommentDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -40,5 +41,14 @@ public class TestConfig implements CommandLineRunner {
 
         user1.getPosts().addAll(Arrays.asList(post1, post2));
         userRepository.save(user1);
+
+        CommentDTO comment1 = new CommentDTO("Boa viagem!", fmt.parse("12/02/2024"), new AuthorDTO(user2));
+        CommentDTO comment2 = new CommentDTO("Aproveite.", fmt.parse("13/02/2024"), new AuthorDTO(user3));
+        CommentDTO comment3 = new CommentDTO("Tenha um ótimo dia!", fmt.parse("14/02/2024"), new AuthorDTO(user2));
+
+        post1.getComments().addAll(Arrays.asList(comment1, comment2));
+        post2.getComments().addAll(Arrays.asList(comment3));
+
+        postRepository.saveAll(Arrays.asList(post1, post2));
     }
 }
