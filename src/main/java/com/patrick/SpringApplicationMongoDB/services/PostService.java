@@ -1,6 +1,7 @@
 package com.patrick.SpringApplicationMongoDB.services;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import com.patrick.SpringApplicationMongoDB.DTO.AuthorDTO;
@@ -32,4 +33,8 @@ public class PostService implements Serializable{
 		return repository.searchTitle(text);
 	}
 
+	public List<Post> fullSearch(String text, Date minDate, Date maxDate){
+		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+		return repository.fullSearch(text, minDate, maxDate);
+	}
 }

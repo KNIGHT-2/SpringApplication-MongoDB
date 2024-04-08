@@ -34,8 +34,8 @@ public class TestConfig implements CommandLineRunner {
 
         userRepository.saveAll(Arrays.asList(user1, user2, user3));
 
-        Post post1 = new Post(null, fmt.parse("12/02/2024"), "Partiu viagem!", "Vou viajar para São Paulo. Abraços.", new AuthorDTO(user1));
-        Post post2 = new Post(null, fmt.parse("14/02/2024"), "Bom dia!", "Acordei feliz hoje.", new AuthorDTO(user1));
+        Post post1 = new Post(null, fmt.parse("11/02/2024"), "Partiu viagem!", "Vou viajar para São Paulo. Abraços.", new AuthorDTO(user1));
+        Post post2 = new Post(null, fmt.parse("14/11/2023"), "Bom dia!", "Acordei feliz hoje.", new AuthorDTO(user1));
 
         postRepository.saveAll(Arrays.asList(post1, post2));
 
@@ -44,7 +44,7 @@ public class TestConfig implements CommandLineRunner {
 
         CommentDTO comment1 = new CommentDTO("Boa viagem!", fmt.parse("12/02/2024"), new AuthorDTO(user2));
         CommentDTO comment2 = new CommentDTO("Aproveite.", fmt.parse("13/02/2024"), new AuthorDTO(user3));
-        CommentDTO comment3 = new CommentDTO("Tenha um ótimo dia!", fmt.parse("14/02/2024"), new AuthorDTO(user2));
+        CommentDTO comment3 = new CommentDTO("Tenha um ótimo dia!", fmt.parse("14/11/2023"), new AuthorDTO(user2));
 
         post1.getComments().addAll(Arrays.asList(comment1, comment2));
         post2.getComments().addAll(Arrays.asList(comment3));
