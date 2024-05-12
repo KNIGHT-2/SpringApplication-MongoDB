@@ -22,12 +22,13 @@ public class TestConfig implements CommandLineRunner {
     UserRepository userRepository;
     @Autowired
     PostRepository postRepository;
+
     @Override
     public void run(String... args) throws Exception {
 
-        userRepository.deleteAll();
+        /*userRepository.deleteAll();
         postRepository.deleteAll();
-
+*/
         User user1 = new User(null, "Maria Brown", "maria@email.com");
         User user2 = new User(null, "Alex Green", "alex@email.com");
         User user3 = new User(null, "Bob Grey", "bob@email.com");
